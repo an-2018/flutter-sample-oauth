@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // packages
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:flutter_appauth/flutter_appauth.dart';
+// import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,6 +17,7 @@ const AUTH0_DOMAIN = "dev-i8ifovht.us.auth0.com";
 const AUTH_CLIENT_ID = "B40eJzuG0flmvqa7FG7Px1uwN5zkMr0C";
 final AUTH0_REDIRECT_URI = "$appBaseUrl";
 const AUTH0_ISSUER = "https://$AUTH0_DOMAIN";
+const DISCOVERY = "$AUTH0_DOMAIN/.well-known/openid-configuration";
 
 void main() {
   runApp(MyApp());
@@ -73,7 +74,7 @@ class _MyAppState extends State<MyApp> {
               AUTH0_REDIRECT_URI,
               issuer: "https://$AUTH0_DOMAIN",
               scopes: ["openid", "profile", "offline_access"],
-              promptValues: ["login"] // ignore any existing session; force interactive login prompt
+              // promptValues: ["login"] // ignore any existing session; force interactive login prompt
             ),
           );
 
